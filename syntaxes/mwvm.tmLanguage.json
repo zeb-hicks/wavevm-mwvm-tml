@@ -8,17 +8,13 @@
 			"end": "(\\.code)",
 			"beginCaptures": { "1": { "name": "support.function" } },
 			"endCaptures": { "1": { "name": "support.function" } },
-			"captures": {
-				"0": {
-					"patterns": [
-						{
-							"name": "constant.numeric",
-							"match": "\\b[a-fA-F0-9]+\\b"
-						},
-						{ "include": "#comment" }
-					]
-				}
-			}
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b[a-fA-F0-9]+\\b"
+				},
+				{ "include": "#comment" }
+			]
 		},
 		{
 			"match": "(\\.code)",
@@ -55,7 +51,7 @@
 		"word": {
 			"patterns": [{
 				"name": "keyword.word.mwvm",
-				"match": "\\b(wmo|wmov|wmove|wsw|wswap|wad|wadd|wsu|wsub)\\b"
+				"match": "\\b(wmov|wmove|wswap|wadd|wsub)\\b"
 			}]
 		},
 		"memory": {
@@ -76,13 +72,13 @@
 		"math": {
 			"patterns": [{
 				"name": "keyword.math.mwvm",
-				"match": "\\b(add|adds|sub|subs|eq|equ|cmpeq|ne|neq|cmpneq|car|cry|carry)(\\.[bw])?\\b"
+				"match": "\\b(add|adds|sub|subs|eq|equ|ne|neq|car|cry|carry)(\\.[bw])?\\b"
 			}]
 		},
 		"comparison": {
 			"patterns": [{
 				"name": "keyword.comparison.mwvm",
-				"match": "\\b(lt|lessu|gt|greateru|le|lte|lessequ|ge|gte|greaterequ)(\\.[bw])?\\b"
+				"match": "\\b(lt|gt|le|lte|ge|gte)(\\.[bw])?\\b"
 			}]
 		},
 		"shifts": {

@@ -3,6 +3,7 @@
   "displayName": "WaveVM Assembly",
   "description": "Assembly Language Support for Meisaka's WaveVM2 Instruction Set",
   "author": "Nimphious",
+  "publisher": "Nimphious",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -10,7 +11,7 @@
   },
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.99.0"
   },
   "categories": [
     "Programming Languages"

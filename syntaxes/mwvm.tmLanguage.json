@@ -1,0 +1,131 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "WaveVM Assembly",
+	"patterns": [
+		{ "include": "#comment" },
+		{
+			"begin": "(\\.memory)",
+			"end": "(\\.code)",
+			"beginCaptures": { "1": { "name": "support.function" } },
+			"endCaptures": { "1": { "name": "support.function" } },
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"name": "constant.numeric",
+							"match": "\\b[a-fA-F0-9]+\\b"
+						},
+						{ "include": "#comment" }
+					]
+				}
+			}
+		},
+		{
+			"match": "(\\.code)",
+			"name": "support.function"
+		},
+		{ "include": "#immediates" },
+		{ "include": "#system" },
+		{ "include": "#word" },
+		{ "include": "#memory" },
+		{ "include": "#swizzle" },
+		{ "include": "#math" },
+		{ "include": "#comparison" },
+		{ "include": "#shifts" },
+		{ "include": "#bitops" },
+		{ "include": "#specops" },
+		{ "include": "#registers" },
+		{ "include": "#literals" },
+		{ "include": "#pointers" },
+		{ "include": "#comment" }
+	],
+	"repository": {
+		"immediates": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "^(\\![0-9a-fA-F]{1,4})"
+			}]
+		},
+		"system": {
+			"patterns": [{
+				"name": "keyword.system.mwvm",
+				"match": "\\b(nop|slp|sleep|hlt|halt)\\b"
+			}]
+		},
+		"word": {
+			"patterns": [{
+				"name": "keyword.word.mwvm",
+				"match": "\\b(wmo|wmov|wmove|wsw|wswap|wad|wadd|wsu|wsub)\\b"
+			}]
+		},
+		"memory": {
+			"patterns": [{
+				"name": "keyword.memory.mwvm",
+				"match": "\\b(mov|move|swi|swizzle)\\b"
+			}]
+		},
+		"swizzle": {
+			"patterns": [{
+				"begin": "\\.",
+				"end": "([xyzw]{1,4})\\b",
+				"endCaptures": {
+					"1": { "name": "variable.other.constant" }
+				}
+			}]
+		},
+		"math": {
+			"patterns": [{
+				"name": "keyword.math.mwvm",
+				"match": "\\b(add|adds|sub|subs|eq|equ|cmpeq|ne|neq|cmpneq|car|cry|carry)(\\.[bw])?\\b"
+			}]
+		},
+		"comparison": {
+			"patterns": [{
+				"name": "keyword.comparison.mwvm",
+				"match": "\\b(lt|lessu|gt|greateru|le|lte|lessequ|ge|gte|greaterequ)(\\.[bw])?\\b"
+			}]
+		},
+		"shifts": {
+			"patterns": [{
+				"name": "keyword.shifts.mwvm",
+				"match": "\\b(lsl|asl|rol|asr|lsr|ror)(\\.[bw])?\\b"
+			}]
+		},
+		"bitops": {
+			"patterns": [{
+				"name": "keyword.bitops.mwvm",
+				"match": "\\b(and|or|xor|nand|nor|xnor|not)(\\.[bw])?\\b"
+			}]
+		},
+		"specops": {
+			"patterns": [{
+				"name": "keyword.specops.mwvm",
+				"match": "\\b(hadd|dp|dot|nz|norm|normalize)\\b"
+			}]
+		},
+		"registers": {
+			"patterns": [{
+				"name": "constant.character.escape.mwvm",
+				"match": "\\b(r[0-7]+|c[0-7]+|ri+)\\b"
+			}]
+		},
+		"literals": {
+			"name": "constant.numeric.mwvm",
+			"begin": "\\b\\.(0x[0-9a-fA-F]+|[0-9]+)\\b",
+			"end": "\\b"
+		},
+		"pointers": {
+			"patterns": [{
+				"name": "storage.mwvm",
+				"match": "\\b\\[0-9a-fA-F]+\\+?\\b"
+			}]
+		},
+		"comment": {
+			"patterns": [{
+				"name": "comment.line.mwvm",
+				"match": ";.*?$"
+			}]
+		}
+	},
+	"scopeName": "source.mwvm"
+}

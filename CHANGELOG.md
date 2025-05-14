@@ -4,6 +4,13 @@ All notable changes to the "wavevm-assembly" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.0.1]
 
-- Initial release
+- Initial release.
+- Base highlighting functionality.
+
+## [0.0.2] - 2025-05-14
+
+### Fixed
+
+- Fixed broken swizzle interfering with partially incorrect syntax matching.

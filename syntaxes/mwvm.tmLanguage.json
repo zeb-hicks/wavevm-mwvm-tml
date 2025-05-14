@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "WaveVM Assembly",
 	"patterns": [
-		{ "include": "#comment" },
+		{ "include": "#comments" },
 		{
 			"begin": "(\\.memory)",
 			"end": "(\\.code)",
@@ -13,18 +13,18 @@
 					"name": "constant.numeric",
 					"match": "\\b[a-fA-F0-9]+\\b"
 				},
-				{ "include": "#comment" }
+				{ "include": "#comments" }
 			]
 		},
 		{
 			"match": "(\\.code)",
 			"name": "support.function"
 		},
+		{ "include": "#comments" },
 		{ "include": "#immediates" },
 		{ "include": "#system" },
 		{ "include": "#word" },
 		{ "include": "#memory" },
-		{ "include": "#swizzle" },
 		{ "include": "#math" },
 		{ "include": "#comparison" },
 		{ "include": "#shifts" },
@@ -32,10 +32,15 @@
 		{ "include": "#specops" },
 		{ "include": "#registers" },
 		{ "include": "#literals" },
-		{ "include": "#pointers" },
-		{ "include": "#comment" }
+		{ "include": "#pointers" }
 	],
 	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.mwvm",
+				"match": ";.*$"
+			}]
+		},
 		"immediates": {
 			"patterns": [{
 				"name": "constant.numeric",
@@ -58,15 +63,6 @@
 			"patterns": [{
 				"name": "keyword.memory.mwvm",
 				"match": "\\b(mov|move|swi|swizzle)\\b"
-			}]
-		},
-		"swizzle": {
-			"patterns": [{
-				"begin": "\\.",
-				"end": "([xyzw]{1,4})\\b",
-				"endCaptures": {
-					"1": { "name": "variable.other.constant" }
-				}
 			}]
 		},
 		"math": {
@@ -101,8 +97,15 @@
 		},
 		"registers": {
 			"patterns": [{
-				"name": "constant.character.escape.mwvm",
-				"match": "\\b(r[0-7]+|c[0-7]+|ri+)\\b"
+				"begin": "\\b\\[?(r[0-7]+|c[0-7]+|ri+)\\+?\\]?",
+				"beginCaptures": {
+					"1": { "name": "constant.character.escape.mwvm" }
+				},
+				"end": "(\\.?)([xyzw]{1,4})?\\b",
+				"endCaptures": {
+					"1": { "name": "keyword.operator" },
+					"2": { "name": "variable.other.constant" }
+				}
 			}]
 		},
 		"literals": {
@@ -114,12 +117,6 @@
 			"patterns": [{
 				"name": "storage.mwvm",
 				"match": "\\b\\[0-9a-fA-F]+\\+?\\b"
-			}]
-		},
-		"comment": {
-			"patterns": [{
-				"name": "comment.line.mwvm",
-				"match": ";.*?$"
 			}]
 		}
 	},

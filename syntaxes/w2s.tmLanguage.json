@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "WaveVM Assembly",
+	"name": "Wave2 Assembly",
 	"patterns": [
 		{ "include": "#comments" },
 		{
@@ -37,7 +37,7 @@
 	"repository": {
 		"comments": {
 			"patterns": [{
-				"name": "comment.line.mwvm",
+				"name": "comment.line.w2s",
 				"match": ";.*$"
 			}]
 		},
@@ -49,59 +49,59 @@
 		},
 		"system": {
 			"patterns": [{
-				"name": "keyword.system.mwvm",
+				"name": "keyword.system.w2s",
 				"match": "\\b(nop|slp|sleep|hlt|halt)\\b"
 			}]
 		},
 		"word": {
 			"patterns": [{
-				"name": "keyword.word.mwvm",
+				"name": "keyword.word.w2s",
 				"match": "\\b(wmov|wmove|wswap|wadd|wsub)\\b"
 			}]
 		},
 		"memory": {
 			"patterns": [{
-				"name": "keyword.memory.mwvm",
+				"name": "keyword.memory.w2s",
 				"match": "\\b(mov|move|swi|swizzle)\\b"
 			}]
 		},
 		"math": {
 			"patterns": [{
-				"name": "keyword.math.mwvm",
+				"name": "keyword.math.w2s",
 				"match": "\\b(add|adds|sub|subs|eq|equ|ne|neq|car|cry|carry)(\\.[bw])?\\b"
 			}]
 		},
 		"comparison": {
 			"patterns": [{
-				"name": "keyword.comparison.mwvm",
+				"name": "keyword.comparison.w2s",
 				"match": "\\b(lt|gt|le|lte|ge|gte)(\\.[bw])?\\b"
 			}]
 		},
 		"shifts": {
 			"patterns": [{
-				"name": "keyword.shifts.mwvm",
+				"name": "keyword.shifts.w2s",
 				"match": "\\b(lsl|asl|rol|asr|lsr|ror)(\\.[bw])?\\b"
 			}]
 		},
 		"bitops": {
 			"patterns": [{
-				"name": "keyword.bitops.mwvm",
+				"name": "keyword.bitops.w2s",
 				"match": "\\b(and|or|xor|nand|nor|xnor|not)(\\.[bw])?\\b"
 			}]
 		},
 		"specops": {
 			"patterns": [{
-				"name": "keyword.specops.mwvm",
+				"name": "keyword.specops.w2s",
 				"match": "\\b(hadd|dp|dot|nz|norm|normalize)\\b"
 			}]
 		},
 		"registers": {
 			"patterns": [{
-				"begin": "\\b\\[?(r[0-7]+|c[0-7]+|ri+)\\+?\\]?",
+				"begin": "((?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{4}|\\.[xyzw])?(?:\\+)?)",
 				"beginCaptures": {
-					"1": { "name": "constant.character.escape.mwvm" }
+					"1": { "name": "constant.character.escape.w2s" }
 				},
-				"end": "(\\.?)([xyzw]{1,4})?\\b",
+				"end": "(\\.?)([xyzw]{1,4})?",
 				"endCaptures": {
 					"1": { "name": "keyword.operator" },
 					"2": { "name": "variable.other.constant" }
@@ -109,16 +109,23 @@
 			}]
 		},
 		"literals": {
-			"name": "constant.numeric.mwvm",
-			"begin": "\\b\\.(0x[0-9a-fA-F]+|[0-9]+)\\b",
-			"end": "\\b"
+			"name": "constant.numeric.w2s",
+			"begin": "[\\b^]\\.(0x[0-9a-fA-F]+|[0-9]+)",
+			"end": "[\\b$]"
 		},
 		"pointers": {
 			"patterns": [{
-				"name": "storage.mwvm",
-				"match": "\\b\\[0-9a-fA-F]+\\+?\\b"
+				"begin": "(\\[(?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{4}|\\.[xyzw])?(?:\\+)?\\])",
+				"beginCaptures": {
+					"1": { "name": "constant.character.escape.w2s" }
+				},
+				"end": "(\\.?)([xyzw]{1,4})?",
+				"endCaptures": {
+					"1": { "name": "keyword.operator" },
+					"2": { "name": "variable.other.constant" }
+				}
 			}]
 		}
 	},
-	"scopeName": "source.mwvm"
+	"scopeName": "source.w2s"
 }

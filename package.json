@@ -1,15 +1,15 @@
 {
-  "name": "wavevm-assembly",
-  "displayName": "WaveVM Assembly",
-  "description": "Assembly Language Support for Meisaka's WaveVM2 Instruction Set",
+  "name": "wave2-assembly",
+  "displayName": "Wave2 Assembly",
+  "description": "Assembly Language Support for Meisaka's Wave2 Instruction Set",
   "author": "Nimphious",
   "publisher": "Nimphious",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zeb-hicks/wavevm-mwvm-tml"
+    "url": "https://github.com/zeb-hicks/wavevm-wave2-asm-tml"
   },
-  "version": "0.0.2",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.99.0"
   },
@@ -18,15 +18,15 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "mwvm",
-      "aliases": ["WaveVM Assembly", "mwvm"],
-      "extensions": ["mwvm"],
+      "id": "w2s",
+      "aliases": ["Wave2 Assembly", "w2s"],
+      "extensions": ["w2s"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "mwvm",
-      "scopeName": "source.mwvm",
-      "path": "./syntaxes/mwvm.tmLanguage.json"
+      "language": "w2s",
+      "scopeName": "source.w2s",
+      "path": "./syntaxes/w2s.tmLanguage.json"
     }]
   }
 }

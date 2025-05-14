@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "wavevm-assembly" extension will be documented in this file.
+All notable changes to the "wave2-assembly" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
@@ -14,3 +14,29 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixed
 
 - Fixed broken swizzle interfering with partially incorrect syntax matching.
+
+## [0.0.3] - 2025-05-14
+
+### Fixed
+
+- Fixed increment notation being outside the brackets.
+
+
+## [0.0.4] - 2025-05-14
+
+### Fixed
+
+- Fix yet more regex errors...
+
+## [0.1.0] - 2025-05-15
+
+### Changes
+
+- Switched to .w2s extension.
+- Renamed to Wave2 Assembly.
+
+## [0.1.0] - 2025-05-15
+
+### Fixes
+
+- Minor rename fixes.

@@ -86,7 +86,7 @@
 		"bitops": {
 			"patterns": [{
 				"name": "keyword.bitops.w2s",
-				"match": "\\b(and|or|xor|nand|nor|xnor|not)(\\.[bw])?\\b"
+				"match": "\\b(all|one|swp|swap|nsrc|notsrc|ndst|notdst|notdest|sand|srcandnotdst|nsad|notsrcanddst|sond|srcornotdst|nsod|notsrcordst|and|or|xor|nand|nor|xnor)(\\.[bw])?\\b"
 			}]
 		},
 		"specops": {

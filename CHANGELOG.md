@@ -35,8 +35,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Switched to .w2s extension.
 - Renamed to Wave2 Assembly.
 
-## [0.1.0] - 2025-05-15
+## [0.1.1] - 2025-05-15
 
 ### Fixes
 
 - Minor rename fixes.
+
+## [0.1.2] - 2025-05-15
+
+### Added
+
+- Newly supported bitops.

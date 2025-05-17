@@ -46,3 +46,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 
 - Newly supported bitops.
+
+## [0.1.3] - 2025-05-15
+
+### Fixes
+
+- Fixed swizzles to support arbitrary swizzles.

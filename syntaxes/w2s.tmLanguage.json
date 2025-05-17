@@ -97,7 +97,7 @@
 		},
 		"registers": {
 			"patterns": [{
-				"begin": "((?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{4}|\\.[xyzw])?(?:\\+)?)",
+				"begin": "((?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{1,4})?(?:\\+)?)",
 				"beginCaptures": {
 					"1": { "name": "constant.character.escape.w2s" }
 				},
@@ -115,7 +115,7 @@
 		},
 		"pointers": {
 			"patterns": [{
-				"begin": "(\\[(?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{4}|\\.[xyzw])?(?:\\+)?\\])",
+				"begin": "(\\[(?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{1,4})?(?:\\+)?\\])",
 				"beginCaptures": {
 					"1": { "name": "constant.character.escape.w2s" }
 				},

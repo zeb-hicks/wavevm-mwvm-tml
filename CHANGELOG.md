@@ -35,25 +35,25 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Switched to .w2s extension.
 - Renamed to Wave2 Assembly.
 
-## [0.1.1] - 2025-05-15
+## [0.1.1] - 2025-05-17
 
 ### Fixes
 
 - Minor rename fixes.
 
-## [0.1.2] - 2025-05-15
+## [0.1.2] - 2025-05-17
 
 ### Added
 
 - Newly supported bitops.
 
-## [0.1.3] - 2025-05-15
+## [0.1.3] - 2025-05-17
 
 ### Fixes
 
 - Fixed swizzles to support arbitrary swizzles.
 
-## [0.1.4] - 2025-05-15
+## [0.1.4] - 2025-05-20
 
 ### Changes
 
@@ -67,3 +67,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
   - Saturating multiply
   - 32-bit multiply high/low
   - Divide
+
+## [0.1.5] - 2025-05-20
+
+### Changes
+
+- Removed some unnecessary size highlighting
+
+### Added
+
+- New instructions:
+  - Jump shorthand

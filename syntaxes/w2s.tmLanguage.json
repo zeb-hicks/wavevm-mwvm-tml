@@ -30,6 +30,7 @@
 		{ "include": "#shifts" },
 		{ "include": "#skips" },
 		{ "include": "#sets" },
+		{ "include": "#jumps" },
 		{ "include": "#bitops" },
 		{ "include": "#specops" },
 		{ "include": "#registers" },
@@ -88,13 +89,19 @@
 		"skips": {
 			"patterns": [{
 				"name": "keyword.skip.w2s",
-				"match": "\\b(skip[1234]?)(\\.[bw])?\\b"
+				"match": "\\b(skip[1234]?)\\b"
 			}]
 		},
 		"sets": {
 			"patterns": [{
 				"name": "keyword.set.w2s",
-				"match": "\\b(set[1234]?)(\\.[bw])?\\b"
+				"match": "\\b(set[1234]?)\\b"
+			}]
+		},
+		"jumps": {
+			"patterns": [{
+				"name": "keyword.jump.w2s",
+				"match": "\\b(jmp)\\b"
 			}]
 		},
 		"bitops": {

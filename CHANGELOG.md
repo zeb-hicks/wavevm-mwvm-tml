@@ -52,3 +52,18 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Fixes
 
 - Fixed swizzles to support arbitrary swizzles.
+
+## [0.1.4] - 2025-05-15
+
+### Changes
+
+- Removed deprecated spec instructions
+
+### Added
+
+- New instructions:
+  - Skip 1-4
+  - Set 1-4
+  - Saturating multiply
+  - 32-bit multiply high/low
+  - Divide

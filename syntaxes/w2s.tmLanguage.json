@@ -28,6 +28,8 @@
 		{ "include": "#math" },
 		{ "include": "#comparison" },
 		{ "include": "#shifts" },
+		{ "include": "#skips" },
+		{ "include": "#sets" },
 		{ "include": "#bitops" },
 		{ "include": "#specops" },
 		{ "include": "#registers" },
@@ -68,19 +70,31 @@
 		"math": {
 			"patterns": [{
 				"name": "keyword.math.w2s",
-				"match": "\\b(add|adds|sub|subs|eq|equ|ne|neq|car|cry|carry)(\\.[bw])?\\b"
+				"match": "\\b(add|adds|sub|subs|carry|ado|addo|addover|suo|subo|subover|rso|rsuo|rsubo|rsubover)(\\.[bw])?\\b"
 			}]
 		},
 		"comparison": {
 			"patterns": [{
 				"name": "keyword.comparison.w2s",
-				"match": "\\b(lt|gt|le|lte|ge|gte)(\\.[bw])?\\b"
+				"match": "\\b(eq|equ|ne|neq|lt|gt|le|lte|ge|gte)(\\.[bw])?\\b"
 			}]
 		},
 		"shifts": {
 			"patterns": [{
 				"name": "keyword.shifts.w2s",
 				"match": "\\b(lsl|asl|rol|asr|lsr|ror)(\\.[bw])?\\b"
+			}]
+		},
+		"skips": {
+			"patterns": [{
+				"name": "keyword.skip.w2s",
+				"match": "\\b(skip[1234]?)(\\.[bw])?\\b"
+			}]
+		},
+		"sets": {
+			"patterns": [{
+				"name": "keyword.set.w2s",
+				"match": "\\b(set[1234]?)(\\.[bw])?\\b"
 			}]
 		},
 		"bitops": {
@@ -92,7 +106,7 @@
 		"specops": {
 			"patterns": [{
 				"name": "keyword.specops.w2s",
-				"match": "\\b(hadd|dp|dot|nz|norm|normalize)\\b"
+				"match": "\\b(hadd|mul|mults(?:at(?:urate)?)?|mlo|multl(?:o(?:w)?)?|mhi|multh(?:i(?:gh)?)?|div(?:ide)?|rdiv(?:ide)?)\\b"
 			}]
 		},
 		"registers": {

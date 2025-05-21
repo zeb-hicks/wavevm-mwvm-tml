@@ -20,7 +20,7 @@
 			"match": "(\\.code)",
 			"name": "support.function"
 		},
-		{ "include": "#comments" },
+		{ "include": "#labels" },
 		{ "include": "#immediates" },
 		{ "include": "#system" },
 		{ "include": "#word" },
@@ -44,6 +44,12 @@
 				"match": ";.*$"
 			}]
 		},
+		"labels": {
+			"patterns": [{
+				"name": "entity.name.variable",
+				"match": "(\\:[0-9a-zA-Z_]+)"
+			}]
+		},
 		"immediates": {
 			"patterns": [{
 				"name": "constant.numeric",
@@ -53,7 +59,7 @@
 		"system": {
 			"patterns": [{
 				"name": "keyword.system.w2s",
-				"match": "\\b(nop|slp|sleep|hlt|halt)\\b"
+				"match": "\\b((:?nop|hlt|halt)|(:?slp|sleep)(:?\\.[hlw])?)\\b"
 			}]
 		},
 		"word": {
@@ -131,7 +137,7 @@
 		},
 		"literals": {
 			"name": "constant.numeric.w2s",
-			"begin": "[\\b^]\\.(0x[0-9a-fA-F]+|[0-9]+)",
+			"begin": "[\\b^]\\.((?:0x|\\$)[0-9a-fA-F]+|[0-9]+)",
 			"end": "[\\b$]"
 		},
 		"pointers": {

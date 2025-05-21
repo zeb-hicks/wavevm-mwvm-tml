@@ -78,3 +78,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - New instructions:
   - Jump shorthand
+
+## [0.1.6] - 2025-05-21
+
+### Added
+
+- Labels
+- Sleep specifiers

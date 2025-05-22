@@ -85,3 +85,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Labels
 - Sleep specifiers
+
+## [0.1.7] - 2025-05-21
+
+### Changed
+
+- Raw values of arbitrary length highlighting

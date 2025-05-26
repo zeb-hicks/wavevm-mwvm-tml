@@ -53,7 +53,7 @@
 		"immediates": {
 			"patterns": [{
 				"name": "constant.numeric",
-				"match": "^(\\![0-9a-fA-F]+)"
+				"match": "^\\s*(\\![0-9a-fA-F]+)"
 			}]
 		},
 		"system": {
@@ -107,7 +107,7 @@
 		"jumps": {
 			"patterns": [{
 				"name": "keyword.jump.w2s",
-				"match": "\\b(jmp)\\b"
+				"match": "\\b(jmp|jeq?|jc|jcp|jne|jnc|jcc)\\b"
 			}]
 		},
 		"bitops": {
@@ -124,11 +124,11 @@
 		},
 		"registers": {
 			"patterns": [{
-				"begin": "((?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{1,4})?(?:\\+)?)",
+				"begin": "\\b((?:r[0-7i]|c[0-7]))",
 				"beginCaptures": {
 					"1": { "name": "constant.character.escape.w2s" }
 				},
-				"end": "(\\.?)([xyzw]{1,4})?",
+				"end": "(\\.?)([xyzw]{1,4})?\\b",
 				"endCaptures": {
 					"1": { "name": "keyword.operator" },
 					"2": { "name": "variable.other.constant" }
@@ -136,20 +136,20 @@
 			}]
 		},
 		"literals": {
-			"name": "constant.numeric.w2s",
-			"begin": "[\\b^]\\.((?:0x|\\$)[0-9a-fA-F]+|[0-9]+)",
-			"end": "[\\b$]"
+			"match": "(\\b[0-9]+|\\$[0-9a-fA-F]+)\\b",
+			"name": "constant.numeric.w2s"
 		},
 		"pointers": {
 			"patterns": [{
-				"begin": "(\\[(?:r[0-7]|c[0-7]|ri)(?:\\.[xyzw]{1,4})?(?:\\+)?\\])",
+				"begin": "\\[(r[0-7i]|c[0-7])",
 				"beginCaptures": {
 					"1": { "name": "constant.character.escape.w2s" }
 				},
-				"end": "(\\.?)([xyzw]{1,4})?",
+				"end": "(\\.?)([xyzw]{1,4})?(\\+?)\\]",
 				"endCaptures": {
 					"1": { "name": "keyword.operator" },
-					"2": { "name": "variable.other.constant" }
+					"2": { "name": "variable.other.constant" },
+					"3": { "name": "keyword.operator" }
 				}
 			}]
 		}

@@ -91,3 +91,17 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Changed
 
 - Raw values of arbitrary length highlighting
+
+## [0.1.8] - 2025-05-21
+
+### Fixes
+
+- Fixed word selectors
+- Fixed immediate value highlighting
+- Fixed matcher for raw instructions
+
+## [0.1.9] - 2025-05-21
+
+### Added
+
+- Support for conditional jump instructions
